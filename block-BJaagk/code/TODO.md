@@ -8,6 +8,10 @@ function percentage(marks, total) {
 // Your code goes here
 ```
 
+const percentage=(marks,total) => {
+return (marks \* 100) / total;
+}
+
 2. Write Function Declaration or Function Expression next to the function.
 
 ```js
@@ -40,6 +44,7 @@ let percentage = (marks, total) => (marks * 100) / total;
 ```
 
 3. Why is a function definition an expression in JavaScript? Give one example of function expression.
+   because function is object
 
 4. Why is a function call an expression in JavaScript?
 
@@ -50,15 +55,16 @@ function add(a, b) {
   return a + b;
 }
 
-let five = add(2, 3); // Answer
-five = add; // Answer
-five = five(10, 11); // Answer
+let five = add(2, 3); // Answer valid
+five = add; // Answer invalid
+five = five(10, 11); // Answer invalid
 five = function () {
-  return 'Hello';
-}; // Answer
+  return "Hello";
+}; // Answer valid
 ```
 
 6. What is the difference between function definition and function call? Explain with an example.
+   function definitions contains series of statements to be executed and function call executes them
 
 7. What is the similarities between function definition and function call?
 
@@ -66,10 +72,10 @@ five = function () {
 
 ```js
 function hello() {
-  console.log('Hello World!');
+  console.log("Hello World!");
 }
 
-hello.user = 'Sam'; // valid or invalid
+hello.user = "Sam"; //  invalid
 ```
 
 9. What is higher order function explain with an example.
