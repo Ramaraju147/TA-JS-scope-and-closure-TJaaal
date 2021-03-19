@@ -1,7 +1,7 @@
 Find the output of the code snippets below:
 
 ```js
-console.log(numA + numB); //OUTPUT
+console.log(numA + numB); //OUTPUT NAN
 var numA = 21,
   numB = 30;
 ```
@@ -44,6 +44,8 @@ function sayHello() {
 }
 ```
 
+Tyrion
+
 Find the output of the code snippets below:
 
 ```js
@@ -52,6 +54,7 @@ let username = "Tyrion";
 function sayHello() {
   console.log(username);
 }
+username is not defined
 ```
 
 Find the output of the code snippets below:
