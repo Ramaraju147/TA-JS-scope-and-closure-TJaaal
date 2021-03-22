@@ -5,9 +5,13 @@
 - It should work exactly like array `forEach` method
 
 ```js
-function forEach() {}
+function forEach(arr, cb) {
+  arr.reduce((acc, e, i, arr) => {
+    cb(e, i, arr);
+  });
+}
 
-forEach(['Sam', 'Jon', 'Arya'], (name, i, arr) =>
+forEach(["Sam", "Jon", "Arya"], (name, i, arr) =>
   console.log(name + name, i, arr)
 );
 ```
@@ -19,12 +23,18 @@ forEach(['Sam', 'Jon', 'Arya'], (name, i, arr) =>
 - It should work exactly like array `map` method
 
 ```js
-function map() {
+function map(arr, cb) {
   // Your code goes here
+  return arr.reduce((acc, e, i, arr) => {
+    acc.push(cb(e));
+    return acc;
+  }, []);
 }
 
-map(['Sam', 'Jon', 'Arya'], (name) => name + name); // ['SamSam', 'JonJon', 'AryaArya']
+map(["Sam", "Jon", "Arya"], (name) => name + name); // ['SamSam', 'JonJon', 'AryaArya']
 ```
+
+console.log(output)
 
 3. Implement `filter` array method using Array.reduce
 
@@ -33,10 +43,12 @@ map(['Sam', 'Jon', 'Arya'], (name) => name + name); // ['SamSam', 'JonJon', 'Ary
 - It should work exactly like array `filter` method
 
 ```js
-function filter() {
+function filter(arr, cb) {
   // Your code goes here
+  return arr.reduce((acc, e, i, arr) => {
+    acc.push(cb(e));
+    return acc;
+  }, []);
 }
-filter(['Sam', 'Jon', 'Arya'], (name) =>
-  name.startsWith('S')
-); // ['Sam']
+filter(["Sam", "Jon", "Arya"], (name) => name.startsWith("S")); // ['Sam']
 ```
