@@ -10,8 +10,15 @@
 **You can use normal for loop for this function**
 
 ```js
-function loop() {
+function loop(startValue, testFn, updateFn, bodyFn) {
   // Your code goes here
+  if (testFn(startValue)) {
+    bodyFn(startValue);
+    startValue = updateFn(startValue);
+    loop(startValue, testFn, updateFn, bodyFn);
+  } else {
+    return;
+  }
 }
 
 loop(
@@ -30,7 +37,11 @@ loop(
 Here's how it works. The function has an "accumulator value" which starts as the `initialValue` and accumulates the output of each loop. The array is iterated over, passing the accumulator and the next array element as arguments to the `callback`. The callback's return value becomes the new accumulator value. The next loop executes with this new accumulator value. In the example above, the accumulator begins at 0. `add(0,4)` is called. The accumulator's value is now 4. Then `add(4, 1)` to make it 5. Finally `add(5, 3)` brings it to 8, which is returned.
 
 ```js
-function reduce(array, callback, initialValue) {}
+function reduce(array, callback, initialValue) {
+  let output = initialValue;
+  array.map((arr) => (output = callback(output, arr)));
+  return output;
+}
 
 // Test
 var nums = [4, 1, 3];
@@ -43,26 +54,30 @@ reduce(nums, add, 0); //-> 8
 3. Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs.
 
 ```js
-function intersection(arrays) {}
+function intersection(...arrays) {
+  return arrays.reduce(
+    (acc, arr1) => acc.filter((x) => arr1.some((y) => y === x)),
+    arrays[0]
+  );
+}
 
 // Test
 console.log(
-  intersection(
-    [5, 10, 15, 20],
-    [15, 88, 1, 5, 7],
-    [1, 10, 15, 5, 20]
-  )
+  intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20])
 ); // should log: [5, 15]
 ```
 
 4. Construct a function `union` that compares input arrays and returns a new array that contains all elements. If there are duplicate elements, only add it once to the new array. Preserve the order of the elements starting from the first element of the first input array.
 
 ```js
-function union(arrays) {}
+function union(...arrays) {
+  return arrays.reduce((accumulator, arr) => {
+    let comb = accumulator.concat(arr);
+    return comb.filter((item, pos) => comb.indexOf(item) === pos);
+  }, []);
+}
 
 // Test
-console.log(
-  union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5])
-);
+console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 ```
