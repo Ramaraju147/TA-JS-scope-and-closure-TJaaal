@@ -5,23 +5,23 @@ Watch this video before doing the exercise: https://www.youtube.com/watch?v=XgSj
 1. Guess the output:
 
 ```js
-let firstName = 'Arya';
-const lastName = 'Stark';
-var knownAs = 'no one';
+let firstName = "Arya";
+const lastName = "Stark";
+var knownAs = "no one";
 
-console.log(
-  window.firstName,
-  window.lastName,
-  window.knownAs
-);
+console.log(window.firstName, window.lastName, window.knownAs);
 ```
+
+undefined
+undefined
+'no one'
 
 2. Guess the output:
 
 ```js
-let firstName = 'Arya';
-const lastName = 'Stark';
-var knownAs = 'no one';
+let firstName = "Arya";
+const lastName = "Stark";
+var knownAs = "no one";
 
 function fullName(a, b) {
   return a + b;
@@ -30,16 +30,21 @@ function fullName(a, b) {
 console.log(window.fullName(firstName, lastName));
 ```
 
+AryaStark
+
 3. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
-fucntion addOne(num){
+function addOne(num) {
   return num + 1;
 }
 var one = addOne(0);
 var two = addOne(1);
 console.log(one, two);
 ```
+
+1
+2
 
 4. Make a Execution Context Diagram for the following JS and write the output.
 
@@ -52,7 +57,7 @@ var two = addOne(1);
 console.log(one, two);
 ```
 
-5. Make a Execution Context Diagram for the following JS and write the output.
+1 2 5. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
 console.log(addOne(0));
@@ -62,6 +67,8 @@ fucntion addOne(num){
 var two = addOne(1);
 console.log(two);
 ```
+
+12
 
 6. Make a Execution Context Diagram for the following JS and write the output.
 
@@ -74,6 +81,8 @@ var two = addOne(1);
 console.log(two);
 ```
 
+Initialization error
+
 7. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
@@ -84,6 +93,8 @@ const addOne = (num) => {
 var two = addOne(1);
 console.log(two);
 ```
+
+Initialization error
 
 8. What will be the output of the following
 
@@ -98,6 +109,8 @@ function isAwesome() {
 isAwesome();
 ```
 
+undefined
+
 9. What will be the output of the following
 
 ```js
@@ -111,7 +124,7 @@ function isAwesome() {
 isAwesome();
 ```
 
-10. What will be the output of the following
+true 10. What will be the output of the following
 
 ```js
 function isAwesome() {
@@ -124,12 +137,14 @@ function isAwesome() {
 isAwesome();
 ```
 
+undefined
+
 11. What will be the output of the following
 
 ```js
-let firstName = 'Arya';
-const lastName = 'Stark';
-var knownAs = 'no one';
+let firstName = "Arya";
+const lastName = "Stark";
+var knownAs = "no one";
 
 function fullName(a, b) {
   return a + b;
@@ -138,34 +153,42 @@ const name = fullName(firstName, lastName);
 console.log(name);
 ```
 
+AryaStark
+
 12. Guess the output of the code below with a reason.
 
 ```js
 function sayHello() {
-  let name = 'Arya Stark';
+  let name = "Arya Stark";
 }
 sayHello();
 
 console.log(name);
 ```
 
+undefined
+
 13. Guess the output of the code below with a reason.
 
 ```js
 if (true) {
-  var name = 'Arya Stark';
+  var name = "Arya Stark";
 }
 console.log(name);
 ```
+
+Arya Stark
 
 14. Guess the output of the code below with a reason.
 
 ```js
 if (true) {
-  let name = 'Arya Stark';
+  let name = "Arya Stark";
 }
 console.log(name);
 ```
+
+undefined
 
 15. Guess the output of the code below with a reason.
 
@@ -176,6 +199,8 @@ for (var i = 0; i < 20; i++) {
 console.log(i);
 ```
 
+20
+
 16. Guess the output of the code below with a reason.
 
 ```js
@@ -185,57 +210,68 @@ for (let i = 0; i < 20; i++) {
 console.log(i);
 ```
 
+undefined
+
 17. Guess the output and the reason behind that.
 
 ```js
 function sample() {
   if (true) {
-    var username = 'John Snow';
+    var username = "John Snow";
   }
   console.log(username);
 }
 sample();
 ```
+
+John Snow
 
 18. Guess the output and the reason behind that.
 
 ```js
 function sample() {
   if (true) {
-    let username = 'John Snow';
+    let username = "John Snow";
   }
   console.log(username);
 }
 sample();
 ```
 
+undefined
+
 19. Guess the output and the reason behind that.
 
 ```js
 function sample() {
-  var username = 'Arya Stark';
+  var username = "Arya Stark";
   if (true) {
-    var username = 'John Snow';
+    var username = "John Snow";
     console.log(username);
   }
-  console.log(username, 'second');
+  console.log(username, "second");
 }
 sample();
 ```
+
+John snow
 
 20. Guess the output and the reason behind that.
 
 ```js
 function sample() {
-  let username = 'Arya Stark';
+  let username = "Arya Stark";
   if (true) {
-    let username = 'John Snow';
-    console.log(username, 'first');
+    let username = "John Snow";
+    console.log(username, "first");
   }
-  console.log(username, 'second');
+  console.log(username, "second");
 }
 sample();
 ```
+
+John Snow
+Arya Stark
 
 21. Guess the output and the reason behind that.
 
@@ -247,7 +283,10 @@ function sample(...args) {
   }
 }
 
-sample('First', 'Second', 'Third');
+sample("First", "Second", "Third");
+Hello I am first
+Hello I am Second
+Hello I am third
 ```
 
 22. Guess the output and the reason behind that.
@@ -260,48 +299,53 @@ function sample(...args) {
   }
 }
 
-sample('First', 'Second', 'Third');
+sample("First", "Second", "Third");
 ```
+
+Hello I am first
+Hello I am Second
+Hello I am third
 
 23. Guess the output and the reason behind that.
 
 ```js
 if (true) {
   const myFunc = function () {
-    console.log(username, 'Second');
+    console.log(username, "Second");
   };
-  console.log(username, 'First');
-  let username = 'Hello World!';
+  console.log(username, "First");
+  let username = "Hello World!";
   myFunc();
 }
 ```
+
+undefined
+Hello World
 
 24. Guess the output and the reason behind that.
 
 ```js
 function outer() {
-  let movie = 'Mad Max: Fury Road';
+  let movie = "Mad Max: Fury Road";
   function inner() {
-    console.log(
-      `I love this movie called ${movie.toUpperCase()}`
-    );
+    console.log(`I love this movie called ${movie.toUpperCase()}`);
   }
   inner();
 }
 
 outer();
 ```
+
+mad max fury
 
 25. Guess the output and the reason behind that.
 
 ```js
 function outer() {
-  let movie = 'Mad Max: Fury Road';
+  let movie = "Mad Max: Fury Road";
   function inner() {
-    let movie = 'Before Sunrise';
-    console.log(
-      `I love this movie called ${movie.toUpperCase()}`
-    );
+    let movie = "Before Sunrise";
+    console.log(`I love this movie called ${movie.toUpperCase()}`);
   }
   inner();
 }
@@ -309,18 +353,18 @@ function outer() {
 outer();
 ```
 
+before sunrise
+
 26. Guess the output and the reason behind that.
 
 ```js
 function outer() {
-  let movie = 'Mad Max: Fury Road';
+  let movie = "Mad Max: Fury Road";
   function inner() {
-    let movie = 'Before Sunrise';
+    let movie = "Before Sunrise";
     function extraInner() {
-      let movie = 'Gone Girl';
-      console.log(
-        `I love this movie called ${movie.toUpperCase()}`
-      );
+      let movie = "Gone Girl";
+      console.log(`I love this movie called ${movie.toUpperCase()}`);
     }
     extraInner();
   }
@@ -328,6 +372,8 @@ function outer() {
 }
 outer();
 ```
+
+gone girl
 
 30. Using reduce find the final value when the initial value passed is `100`. You have to pass the output of one function into the input of next function in the array `allFunctions` starts with `addOne` ends with `half`.
 
@@ -345,14 +391,9 @@ const half = (num) => {
   return num / 2;
 };
 
-let allFunctions = [
-  addOne,
-  subTwo,
-  multiplyThree,
-  addOne,
-  multiplyThree,
-  half,
-];
+let allFunctions = [addOne, subTwo, multiplyThree, addOne, multiplyThree, half];
 
 // Answer is: 447
 ```
+
+return allFunctions.reduce((acc,arr) => arr(acc),100)
