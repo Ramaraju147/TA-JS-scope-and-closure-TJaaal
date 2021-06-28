@@ -3,7 +3,16 @@
 1. Construct a function `objOfMatches` that accepts two arrays and a callback. `objOfMatches` will build an object and return it. To build the object, `objOfMatches` will test each element of the first array using the callback to see if the output matches the corresponding element (by index) of the second array. If there is a match, the element from the first array becomes a key in an object, and the element from the second array becomes the corresponding value.
 
 ```js
-function objOfMatches(array1, array2, callback) {}
+function objOfMatches(array1, array2, callback) {
+  let output = {};
+  array1.forEach((x, i) => {
+    if (array2[i] === callback(x)) {
+      output[x] = array2[i];
+    }
+  });
+
+  console.log(output);
+}
 
 // TEST
 console.log(
@@ -20,7 +29,16 @@ console.log(
 2. Construct a function `multiMap` that will accept two arrays: an array of values and an array of callbacks. `multiMap` will return an object whose keys match the elements in the array of values. The corresponding values that are assigned to the keys will be arrays consisting of outputs from the array of callbacks, where the input to each callback is the key.
 
 ```js
-function multiMap(arrVals, arrCallbacks) {}
+function multiMap(arrVals, arrCallbacks) {
+  let output = {};
+  arrVals.forEach((x, i) => {
+    output[x] = [];
+    arrCallbacks.forEach((y) => {
+      output[x].push(y(x));
+    });
+  });
+  return output;
+}
 
 // TEST
 console.log(
@@ -31,9 +49,7 @@ console.log(
         return str.toUpperCase();
       },
       function (str) {
-        return (
-          str[0].toUpperCase() + str.slice(1).toLowerCase()
-        );
+        return str[0].toUpperCase() + str.slice(1).toLowerCase();
       },
       function (str) {
         return str + str;
@@ -50,7 +66,24 @@ To build the object, `objOfMatchesWithArray` will test each element of the first
 The final output from the third array will be matched agains the same indexed element of second array. If there is a match, the element from the first array becomes a key in an object, and the element from the second array becomes the corresponding value.
 
 ```js
-function objOfMatchesWithArray(array1, array2, callback) {}
+function objOfMatchesWithArray(array1, array2, callback) {
+  let compArr = [];
+  array1.forEach((x) => {
+    let result = x;
+    callback.forEach((y) => {
+      result = y(result);
+    });
+    compArr.push(result);
+  });
+  let output = {};
+  compArr.forEach((x, i) => {
+    if (array2[i] === x) {
+      output[array1[i]] = x;
+    }
+  });
+
+  console.log(output);
+}
 
 // TEST
 console.log(
@@ -62,9 +95,7 @@ console.log(
         return str.toUpperCase();
       },
       function (str) {
-        return (
-          str[0].toUpperCase() + str.slice(1).toLowerCase()
-        );
+        return str[0].toUpperCase() + str.slice(1).toLowerCase();
       },
       function (str) {
         return str + str;
@@ -81,7 +112,16 @@ To build the object, `objectWithArrayValues` will pass each value of the first a
 In the final object the key will be the value form the first array like `hi` and value will be an array of values returned from each function like `['HI', 'Hi', 'HiHi']`
 
 ```js
-function objOfMatchesWithArray(array1, array2, callback) {}
+function objOfMatchesWithArray(array1, array2, callback) {
+  let output = {};
+  array1.forEach((x) => {
+    output[x] = [];
+    array2.forEach((y) => {
+      output[x].push(y(x));
+    });
+  });
+  console.log(output);
+}
 
 // TEST
 console.log(
@@ -92,9 +132,7 @@ console.log(
         return str.toUpperCase();
       },
       function (str) {
-        return (
-          str[0].toUpperCase() + str.slice(1).toLowerCase()
-        );
+        return str[0].toUpperCase() + str.slice(1).toLowerCase();
       },
       function (str) {
         return str + str;
@@ -123,7 +161,13 @@ Create a function named `schedule` which accept two arguments an array of functi
 The function `schedule` will execute the function at first index after the value in value on first index in second array. i.e execute `sayHi` after `1` second and `sayHello` after `2` second.
 
 ```js
-function schedule() {}
+function schedule(arr1, arr2) {
+  if (arr1.length === arr2.length) {
+    arr1.forEach((x, i) => setTimeout(x, arr2[i]));
+  } else {
+    throw Error('invalid input');
+  }
+}
 
 function sayHi() {
   console.log('Hi');
@@ -134,7 +178,7 @@ function sayHello() {
 function sayHey() {
   console.log('Hey');
 }
-schedule([sayHi, sayHello, sayHey], [2, 3, 4]);
+schedule([sayHi, sayHello, sayHey], [1000, 1100, 1200]);
 
 // sayHi will be executed after 2 seconds
 // sayHello will be executed after 3 seconds
