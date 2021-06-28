@@ -47,6 +47,7 @@ let percentage = (marks, total) => (marks * 100) / total;
    because function is object
 
 4. Why is a function call an expression in JavaScript?
+   functions are values in js as they can be assigned, copied.
 
 5. Write VALID and INVALID next to each example below with the reason.
 
@@ -59,7 +60,7 @@ let five = add(2, 3); // Answer valid
 five = add; // Answer invalid
 five = five(10, 11); // Answer invalid
 five = function () {
-  return "Hello";
+  return 'Hello';
 }; // Answer valid
 ```
 
@@ -67,17 +68,31 @@ five = function () {
    function definitions contains series of statements to be executed and function call executes them
 
 7. What is the similarities between function definition and function call?
+   No Similarity
 
 8. Is the code below valid or invalid. Explain with reason.
 
 ```js
 function hello() {
-  console.log("Hello World!");
+  console.log('Hello World!');
 }
 
-hello.user = "Sam"; //  invalid
+hello.user = 'Sam'; //  invalid
 ```
 
 9. What is higher order function explain with an example.
+   higher order function is a function which takes function as argument or returns function
+
+Ex:
+
+const High = () => {
+console.log("high")
+}
+
+const higherOrderFunction(High){
+High();
+}
 
 10. Explain what is callback function. Why you can pass a function inside a function?
+
+callback function is a function that is passed into another function as an argument. This function can then be invoked during the execution of that higher order function
