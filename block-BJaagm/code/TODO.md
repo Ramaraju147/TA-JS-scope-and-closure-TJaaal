@@ -1,11 +1,11 @@
 1. What does thread of execution means in JavaScript?
-   It means series of steps to execute the js file
+It means series of steps in while js engine executes code
 
 2. Where the JavaScript code gets executed?
    js engine
 
 3. What does context means in Global Execution Context?
-   global variables
+environment created by js
 
 4. When do you create a global execution context.
    js engine cretes it while execution of js file
