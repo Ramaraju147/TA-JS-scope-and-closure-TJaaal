@@ -46,8 +46,14 @@ let percentage = (marks, total) => (marks * 100) / total;
 3. Why is a function definition an expression in JavaScript? Give one example of function expression.
    because function is object
 
+   const add = (a,b) => {
+     return a+b;
+   }
+
 4. Why is a function call an expression in JavaScript?
    functions are values in js as they can be assigned, copied.
+
+
 
 5. Write VALID and INVALID next to each example below with the reason.
 
@@ -57,8 +63,8 @@ function add(a, b) {
 }
 
 let five = add(2, 3); // Answer valid
-five = add; // Answer invalid
-five = five(10, 11); // Answer invalid
+five = add; // Answer valid
+five = five(10, 11); // Answer valid
 five = function () {
   return 'Hello';
 }; // Answer valid
@@ -77,7 +83,8 @@ function hello() {
   console.log('Hello World!');
 }
 
-hello.user = 'Sam'; //  invalid
+hello.user = 'Sam'; //  valid
+because hello is object
 ```
 
 9. What is higher order function explain with an example.
