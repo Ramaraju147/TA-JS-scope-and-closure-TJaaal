@@ -16,12 +16,12 @@ function sayHelloToUser(name) {
   return `Hello ${name}, How are you doing?`;
 }
 
-var fullName = getFullName(firstName, lastName);
-var jon = getFullName("John", "Snow");
+var fullName = getFullName(firstName, lastName); //Arya Stark
+var jon = getFullName("John", "Snow"); // John Snow
 
-console.log(fullName);
+console.log(fullName); //Arya Stark
 
-var userMessage = sayHelloToUser("Bran");
+var userMessage = sayHelloToUser("Bran"); // Hello Bran, How are you doing?
 ```
 
 <!-- Put your image below -->
@@ -39,6 +39,8 @@ function sayHi() {
 }
 
 sayHi();
+// Lydia
+// 21
 ```
 
 <!-- Put your image below -->
@@ -56,6 +58,8 @@ function sayHi() {
 }
 
 sayHi();
+// undefined 
+// undefined
 ```
 
 <!-- Put your image below -->
@@ -65,8 +69,8 @@ sayHi();
 4.
 
 ```js
-console.log(arr); // output
-console.log(username); // output
+console.log(arr); // output undefined
+console.log(username); // output undefined
 var usename = "Sam";
 var arr = [1, 2, 3, 4, 5, 6];
 test;
