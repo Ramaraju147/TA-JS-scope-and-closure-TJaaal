@@ -24,11 +24,10 @@ function delay(arg1, arg2) {
 3. Write a function with a closure. The first function should only take one argument, someone's last name, and return the inner function. The returned `inner` function should take one more argument, someone's first name. When inner function when called it should console.log both the first name and the last name with a space.
 
 ```js
-function lastName(arg1) {
-  //  Your code goes here
-  return function lastNameLee(arg2) {
-    console.log(`${arg1} ${arg2}`);
-  };
+function lastName(lastName){
+return (firstName) => {
+  console.log(`${firstName} ${lastName}`)
+}
 }
 
 let lastNameLee = lastName("lee"); // logs nothing
@@ -45,17 +44,14 @@ lastNameLee("Lynne"); //logs 'Lynne Lee'
 4. Create a `storyWriter` function that returns an object with two methods. One method, `addWords` adds a word to your story and returns the story while the other one, `erase`, resets the story back to an empty string. Here is an implementation:
 
 ```js
-function storyWriter() {
-  // Your code goes here
-  let story = "";
+function storyWriter(){
+  let story = '';
   return {
-    addWords: (arg1) => {
-      story.concat(arg1);
-      console.log(story);
-    },
-    erase: () => (story = ""),
-  };
-}
+    addWords: (words) => story.concat(" ",words),
+    erase: () => story = ''
+    }
+  }
+
 
 // Test
 let farmLoveStory = storyWriter();
@@ -74,12 +70,11 @@ storyOfMyLife.erase(); // ''
 When `forEach` function is called it returns another function. When the returned function is called it returns the element from the array at specific index. Every time you call the returned function the value of index should increment.
 
 ```js
-function forEach(arr) {
-  // Your code goes here
-  let index = 0;
+function forEach(arr){
+  let index=0
   return () => {
-    return arr[index++];
-  };
+    return arr[index++]
+  }
 }
 
 let next = forEach([1, 2, 3, 4, 5]);
