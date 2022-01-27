@@ -13,7 +13,7 @@ let getSum = outer();
 let num = getSum();
 ```
 
-30 2.
+30
 
 Create the execution context diagram for following code. Also write the output of the code below.
 
@@ -28,13 +28,13 @@ function getCounter() {
 
 let counter = getCounter();
 
-counter(); // output
-counter(); // output
-counter(); // output
-counter(); // output
+counter(); // output 0
+counter(); // output 1
+counter(); // output 2
+counter(); // output 3
 ```
 
-0 1 2 3
+
 
 3. Create the execution context diagram
 
@@ -54,4 +54,4 @@ tomato();
 // What will be the background color after the execution of last line
 ```
 
-tomoto
+"tomoto"
