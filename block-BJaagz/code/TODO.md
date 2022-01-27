@@ -5,10 +5,10 @@
 - It should work exactly like array `forEach` method
 
 ```js
-function forEach(arr, cb) {
-  arr.reduce((acc, e, i, arr) => {
-    cb(e, i, arr);
-  });
+function forEach(arr,cb){
+  arr.reduce((acc,e,i,arr)=>{
+    cb(e,i,arr)
+  },[])
 }
 
 forEach(["Sam", "Jon", "Arya"], (name, i, arr) =>
@@ -46,7 +46,9 @@ console.log(output)
 function filter(arr, cb) {
   // Your code goes here
   return arr.reduce((acc, e, i, arr) => {
-    acc.push(cb(e));
+    if(cb(e)===true){
+    acc.push(e);
+    }
     return acc;
   }, []);
 }
