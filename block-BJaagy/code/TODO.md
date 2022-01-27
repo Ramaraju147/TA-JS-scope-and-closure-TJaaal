@@ -21,7 +21,11 @@ Have `map` return a new array filled with values that are the result of the 'cal
 ```js
 // Your code goes here
 function map(arr,cb){
-  arr.map(e => return cb(e))
+  let final =[]
+  for(let i=0;i<arr.length;i++){
+    final.push(cb(arr[i]))
+  }
+  return final;
 }
 
 // Test Your Code
@@ -37,10 +41,11 @@ multiplyByTwo(2); //-> 4
 
 ```js
 // Your code goes here
-function forEach(arr, cb) {
-  arr.forEach((e) => cb(e));
+function forEach(arr,cb){
+  for(let i=0;i<arr.length;i++){
+    cb(arr[i])
+  }
 }
-
 // Test Your Code
 let alphabet = "";
 let letters = ["a", "b", "c", "d"];
@@ -54,8 +59,12 @@ console.log(alphabet); //prints 'abcd'
 
 ```js
 // Test Your Code
-function filter(arr, cb) {
-  return arr.filter((e) => cb(e));
+function filter(arr,cb){
+  let final = [];
+  for(let i=0;i<arr.length;i++){
+    final.push(cb(arr[i]))
+  }
+  return final;
 }
 
 var numbers = [1, 3, 5, 4, 7, 89, 234, 20];
