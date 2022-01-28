@@ -57,7 +57,8 @@ var two = addOne(1);
 console.log(one, two);
 ```
 
-1 2 5. Make a Execution Context Diagram for the following JS and write the output.
+1 2 
+5. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
 console.log(addOne(0));
@@ -82,6 +83,7 @@ console.log(two);
 ```
 
 Initialization error
+addOne not defined
 
 7. Make a Execution Context Diagram for the following JS and write the output.
 
@@ -124,7 +126,8 @@ function isAwesome() {
 isAwesome();
 ```
 
-true 10. What will be the output of the following
+true 
+10. What will be the output of the following
 
 ```js
 function isAwesome() {
