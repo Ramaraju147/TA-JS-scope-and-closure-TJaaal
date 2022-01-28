@@ -38,9 +38,11 @@ Here's how it works. The function has an "accumulator value" which starts as the
 
 ```js
 function reduce(array, callback, initialValue) {
-  let output = initialValue;
-  array.map((arr) => (output = callback(output, arr)));
-  return output;
+  let accumulator = initialValue;
+  array.map((e) => {
+    accumulator = cb(accumulator, e);
+  });
+  return accumulator;
 }
 
 // Test
@@ -55,10 +57,13 @@ reduce(nums, add, 0); //-> 8
 
 ```js
 function intersection(...arrays) {
-  return arrays.reduce(
-    (acc, arr1) => acc.filter((x) => arr1.some((y) => y === x)),
-    arrays[0]
-  );
+  let acc = arrays[0];
+  for (let i = 1; i < arrays.length; i++) {
+    acc = acc.filter((e) => {
+      return arrays[i].find((x) => x === e);
+    });
+  }
+  return acc;
 }
 
 // Test
@@ -71,10 +76,15 @@ console.log(
 
 ```js
 function union(...arrays) {
-  return arrays.reduce((accumulator, arr) => {
-    let comb = accumulator.concat(arr);
-    return comb.filter((item, pos) => comb.indexOf(item) === pos);
-  }, []);
+  let acc = arrays[0];
+  for (let i = 1; i < arrays.length; i++) {
+    arrays[i].forEach((arr) => {
+      if (!acc.includes(arr)) {
+        acc.push(arr);
+      }
+    });
+  }
+  return acc;
 }
 
 // Test
