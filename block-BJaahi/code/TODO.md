@@ -25,24 +25,23 @@ var nextMessage = sayHello("Test");
 ```js
 // Declaration Phase
 var username = undefined;
-let brothers;
+let brothers
 
 function sayHello(name) {
   return `Hello ${name}`;
 }
 
-let message;
-var nextMessage = undefined;
+let message
+var nextMessage = undefined
+
 
 // Execution Phase
 
-username = "Arya";
-brothers = ["John", "Ryan", "Bran"];
-
+var username = "Arya";
+let brothers = ["John", "Ryan", "Bran"];
 console.log(username, brothers[0]);
-
-message = sayHello(username);
-nextMessage = sayHello("Test");
+let message = sayHello(username);
+var nextMessage = sayHello("Test");
 ```
 
 2.
