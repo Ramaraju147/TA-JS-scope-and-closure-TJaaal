@@ -7,6 +7,15 @@ The returned function accepts a sentence. If the sentence contains the `fromWord
 ```js
 function censor(fromWord, toWord) {
   //  Your code goes here
+  return (sentence) => {
+   let arr = sentence.split(" ");
+   arr.forEach((a,i,arr) => {
+     if(a === fromWord){
+       arr[i] = toWord;
+     }
+   })
+   return arr.join(" ");
+  }
 }
 
 let censorSentence = censor('World', 'Sam');
@@ -26,6 +35,17 @@ The returned function either accepts two parameter or one parameter.
 ```js
 function multipleCensor() {
   //  Your code goes here
+      let censorArray = []
+  return (param1,param2) => {
+    if(param1 &&  param2){
+      censorArray.push([param1,param2])
+    }else{
+        censorArray.forEach((c) => {
+          param1 = param1.replace(c[0],c[1])
+        })
+      return param1
+    }
+  }
 }
 
 let censorQuote = multipleCensor();
@@ -49,8 +69,16 @@ The returned function accepts one parameter.
 - If the parameter is the same as the password it will return the object in which we stored the values.
 
 ```js
-function createCache() {
+function createCache(cb,pass) {
   // Your code goes here
+  let obj = {}
+  return (param) => {
+    if(param === pass){
+      return obj
+    }else{
+      obj[param] = cb(param)
+    }
+  }
 }
 
 function add10(num) {
@@ -69,8 +97,24 @@ addCache('foo'); // {12: 22, 100: 110, 1: 11}
 4. Change the above function in such a way that when the returned function is called with any other value than password. It should first check the object where we are storing the argument and return value. If the key is present return the value form the object itself. Otherwise call the callback function with the parameter.
 
 ```js
-function createCache() {
+function createCache(cb,pass) {
   // Your code goes here
+    let obj = {}
+    let entryExists = false
+  return (param) => {
+    if(param === pass){
+      return obj
+    }else{
+      for(let key in obj){
+        if(key === param){
+          entryExists = true
+        }
+      }
+      if(!entryExists){
+       obj[param] = cb(param)
+      }
+    }
+  }
 }
 
 function add10(num) {
